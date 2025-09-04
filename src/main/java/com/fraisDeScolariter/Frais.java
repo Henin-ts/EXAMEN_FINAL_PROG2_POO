@@ -49,11 +49,26 @@ public class Frais {
     }
 
     public StatusFrais getStatut(List<TypeDePaiement> paiements , LocalDate dateAujourdhui){
-        double totalPaye = 0 ;
-        for (Paiement p : paiements) {
-            totalPaye += p.getMontantPaye();
+        float totalPaye = 0 ;
+
+        for (TypeDePaiement p: paiements) {
+            totalPaye += p.getMontant();
         }
 
+        if (totalPaye == montantPayer){
+            return StatusFrais.PAID;
+        }
 
+        if (totalPaye > montantPayer){
+            return StatusFrais.OVERPAID;
+        }
+
+        if (dateAujourdhui.isAfter(deadline) && totalPaye < montantPayer) {
+            return StatusFrais.LATE;
+        }
+
+        else {
+            return StatusFrais.IN_PROGRESS;
+        }
     }
 }
