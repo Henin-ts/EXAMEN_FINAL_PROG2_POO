@@ -1,5 +1,49 @@
 package com.fraisDeScolariter;
 
-public class Frais {
+import java.time.LocalDate;
 
+public class Frais {
+    private int id;
+    private String label;
+    private float montantPayer;
+    private LocalDate deadline;
+
+    public Frais(int id, String label, float montantPayer, LocalDate deadline) {
+        this.id = id;
+        this.label = label;
+        this.montantPayer = montantPayer;
+        this.deadline = deadline;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public float getMontantPayer() {
+        return montantPayer;
+    }
+
+    public void setMontantPayer(float montantPayer) {
+        this.montantPayer = montantPayer;
+    }
+
+    public LocalDate getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(LocalDate deadline) {
+        this.deadline = deadline;
+    }
 }
