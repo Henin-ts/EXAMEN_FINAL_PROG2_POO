@@ -1,6 +1,7 @@
 package com.fraisDeScolariter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Frais {
     private int id;
@@ -45,5 +46,14 @@ public class Frais {
 
     public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
+    }
+
+    public StatusFrais getStatut(List<TypeDePaiement> paiements , LocalDate dateAujourdhui){
+        double totalPaye = 0 ;
+        for (Paiement p : paiements) {
+            totalPaye += p.getMontantPaye();
+        }
+
+
     }
 }
